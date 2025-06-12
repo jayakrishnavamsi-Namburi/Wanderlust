@@ -1,0 +1,123 @@
+  #filters {
+      display: flex;
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      gap: 1rem;
+      padding: 0.8rem 1rem;
+      background-color: #fff;
+      border-bottom: 1px solid #ccc;
+      scrollbar-width: none;
+      justify-content: space-around;
+  }
+  #filters::-webkit-scrollbar {
+      display: none;
+  }
+
+  .filter {
+      margin-top: 1rem;
+      text-align: center;
+      opacity: 0.6;
+      transition: opacity 0.2s ease;
+      min-width: 80px;
+  }
+  .filter:hover {
+      opacity: 1;
+      cursor: pointer;
+  }
+  .filter i {
+      font-size: 1.3rem;
+      color: #fe424d;
+  }
+  .filter p {
+      margin-top: 0.2rem;
+      font-size: 0.75rem;
+      color: #333;
+  }
+
+  .tax-toggle {
+      display: flex;
+      align-items: center;
+      border-radius: 1rem;
+      background-color: #f9f9f9;
+      padding: 0.3rem 0.8rem;
+      font-size: 0.75rem;
+      color: #555;
+      border: 1px solid #ccc;
+      margin-left: auto;
+      white-space: nowrap;
+  }
+  .form-check-input {
+      margin-right: 0.5rem;
+  }
+
+  .tax {
+      display: inline-block;
+      margin-left: 0.4rem;
+      color: #2e7d32;
+      background-color: #e8f5e9;
+      padding: 0.1rem 0.4rem;
+      border-radius: 0.3rem;
+      font-size: 0.75rem;
+  }
+  .tax.hidden {
+      display: none;
+  }
+
+  @media (max-width: 768px) {
+      #filters {
+          border-bottom: none;
+      }
+      .filter i {
+          font-size: 1.6rem;
+      }
+      .filter p {
+          font-size: 0.7rem;
+      }
+      .tax-toggle {
+          padding: 0.3rem 0.5rem;
+          margin-left: 0.5rem;
+      }
+  }
+  #filters a{
+    text-decoration: none;
+  }
+ .no-listings {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 70vh; /* Adjust if needed */
+    text-align: center;
+    color: #555;
+    padding: 0 1rem;
+}
+
+.no-listings h3 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 0.5rem;
+}
+
+.no-listings p {
+    font-size: 1rem;
+    color: #777;
+}
+
+.no-listings i {
+    font-size: 3rem;
+    color: #fe424d;
+    margin-bottom: 1rem;
+}
+
+/* Responsive typography for smaller screens */
+@media (max-width: 768px) {
+    .no-listings h3 {
+        font-size: 1.5rem;
+    }
+    .no-listings p {
+        font-size: 0.9rem;
+    }
+    .no-listings i {
+        font-size: 2.5rem;
+    }
+}

@@ -1,0 +1,91 @@
+<nav class="navbar sticky-top border-bottom">
+  <!-- Brand -->
+  <a class="brand" href="/listings">
+      <i class="fa-regular fa-compass"></i>
+      <span class="brand-name">Wanderlust</span>
+  </a>
+
+  <!-- Search Form -->
+  <form class="search-form" action="/listings" method="GET">
+      <input 
+          class="search-inp" 
+          type="search" 
+          placeholder="Search destinations" 
+          name="q"
+          value="<%= searchQuery %>" 
+      />
+      <% if (placeType && placeType !== "all") { %>
+          <input type="hidden" name="placeType" value="<%= placeType %>">
+      <% } %>
+      <button class="search-btn" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+  </form>
+
+  <!-- Hamburger Button -->
+  <button class="menu-btn" onclick="toggleMenu()">
+      <i class="fa-solid fa-bars"></i>
+  </button>
+
+  <!-- Desktop Nav -->
+  <div class="desktop-nav">
+      <label class="gst-toggle" for="switchGST">
+          <input type="checkbox" id="switchGST" /> Show GST
+      </label>
+      <a href="/listings/new">Airbnb your home</a>
+      <% if (!currUser) { %>
+          <a href="/signup"><b>Sign up</b></a>
+          <a href="/login"><b>Log in</b></a>
+      <% } else { %>
+          <a href="/logout"><b>Log out</b></a>
+      <% } %>
+  </div>
+</nav>
+
+<!-- Overlay -->
+<div class="overlay" onclick="toggleMenu()"></div>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="/listings">Explore</a>
+  <label class="gst-toggle" for="switchGSTMobile">
+      <input type="checkbox" id="switchGSTMobile" /> Show GST
+  </label>
+  <a href="/listings/new">Airbnb your home</a>
+
+  <!-- ✅ Auth Links clearly visible -->
+  <% if (!currUser) { %>
+      <a href="/signup"><b>Sign up</b></a>
+      <a href="/login"><b>Log in</b></a>
+  <% } else { %>
+      <a href="/logout"><b>Log out</b></a>
+  <% } %>
+</div>
+
+<script>
+  function toggleMenu() {
+      document.getElementById('mobileMenu').classList.toggle('show');
+      document.querySelector('.overlay').classList.toggle('show');
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+      const switchGST = document.getElementById("switchGST");
+      const switchGSTMobile = document.getElementById("switchGSTMobile");
+
+      function toggleGSTDisplay(checked) {
+          document.querySelectorAll(".tax").forEach(tax => {
+              tax.classList.toggle("hidden", !checked);
+          });
+      }
+
+      switchGST.addEventListener("change", () => {
+          toggleGSTDisplay(switchGST.checked);
+          switchGSTMobile.checked = switchGST.checked;
+      });
+
+      switchGSTMobile.addEventListener("change", () => {
+          toggleGSTDisplay(switchGSTMobile.checked);
+          switchGST.checked = switchGSTMobile.checked;
+      });
+  });
+</script>
+
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>

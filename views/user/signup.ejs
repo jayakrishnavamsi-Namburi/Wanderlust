@@ -1,0 +1,90 @@
+<style>
+.signup-container {
+    max-width: 400px;
+    margin: 4rem auto;
+    padding: 2.5rem 2rem;
+    background: linear-gradient(145deg, #ffffff, #f0f0f0);
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+}
+
+.signup-container h1 {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 1.9rem;
+    color: #222;
+    font-weight: 600;
+}
+
+.signup-container .form-label {
+    font-weight: 500;
+    color: #333;
+}
+
+.signup-container .form-control {
+    border-radius: 10px;
+    padding: 0.6rem 1rem;
+    border: 1px solid #ccc;
+    transition: border-color 0.3s;
+}
+
+.signup-container .form-control:focus {
+    border-color: #fe424d;
+    box-shadow: 0 0 0 2px rgba(254, 66, 77, 0.2);
+}
+
+.signup-container .btn-signup {
+    width: 100%;
+    background-color: #fe424d;
+    color: #fff;
+    padding: 0.7rem;
+    border-radius: 10px;
+    font-weight: 500;
+    border: none;
+    transition: background-color 0.3s ease;
+}
+
+.signup-container .btn-signup:hover {
+    background-color: #e63946;
+}
+
+.signup-container .invalid-feedback {
+    font-size: 0.9rem;
+    color: #e63946;
+}
+
+@media (max-width: 576px) {
+    .signup-container {
+        padding: 2rem 1rem;
+        margin: 2rem 1rem;
+    }
+
+    .signup-container h1 {
+        font-size: 1.8rem;
+    }
+}
+</style>
+
+<% layout("/layouts/boilerplate") %>
+
+<div class="signup-container">
+    <h1>Signup on Wanderlust</h1>
+    <form action="/signup" method="POST" class="needs-validation" novalidate>
+        <div class="mb-3">
+            <label for="username" class="form-label">Username</label>
+            <input name="username" type="text" id="username" class="form-control" required />
+            <div class="invalid-feedback">Please enter a username</div>
+        </div>
+        <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input name="email" type="email" id="email" class="form-control" required />
+            <div class="invalid-feedback">Please enter a valid email</div>
+        </div>
+        <div class="mb-3">
+            <label for="password" class="form-label">Password</label>
+            <input name="password" type="password" id="password" class="form-control" required />
+            <div class="invalid-feedback">Please enter a password</div>
+        </div>
+        <button type="submit" class="btn-signup">Signup</button>
+    </form>
+</div>

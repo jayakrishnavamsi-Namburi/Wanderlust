@@ -1,0 +1,105 @@
+  body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+  }
+
+  .listing-card {
+    max-width: 100%;
+  }
+
+  .show-img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+  }
+
+  .card-text {
+    font-size: 1rem;
+  }
+
+  .btns {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1rem;
+  }
+
+  #map {
+    width: 100%;
+    height: 300px;
+    border-radius: 10px;
+  }
+
+  /* Responsive Layout */
+  @media (max-width: 992px) {
+    .col-8.offset-2 {
+      width: 100%;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+
+    .card-text {
+      font-size: 0.95rem;
+    }
+
+    .desktop-nav {
+      display: none;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .card.col-5 {
+      width: 100% !important;
+      margin: 0 auto 1rem auto;
+    }
+
+    .col-6 {
+      width: 100% !important;
+    }
+  }
+.description {
+    width: 45rem;
+    max-width: 900px;     /* ✅ Large on laptop screens */
+    word-wrap: break-word;
+    margin-bottom: 1rem;
+    font-size: 1.05rem;
+    line-height: 1.6;
+}
+
+@media (max-width: 992px) {
+    .description {
+        max-width: 720px; /* ✅ Slightly smaller on medium screens (tablets) */
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .description {
+        max-width: 100%;  /* ✅ Full width for phones */
+        font-size: 0.95rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .description {
+        font-size: 0.9rem; /* ✅ Even smaller text on very small phones */
+    }
+}
+
+  @media (max-width: 576px) {
+    .listing-card {
+      width: 100%;
+    }
+
+    .card-text {
+      font-size: 0.9rem;
+    }
+
+    .btns {
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    .starability-result {
+      font-size: 0.9rem;
+    }
+  }

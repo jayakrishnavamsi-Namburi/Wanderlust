@@ -1,0 +1,209 @@
+<% layout("/layouts/boilerplate") %>
+
+<style>
+  body {
+      font-family: "Plus Jakarta Sans", sans-serif;
+      background-color: #f8f9fa;
+  }
+
+  h3 {
+      font-weight: 600;
+      color: #222;
+  }
+
+  .form-label {
+      font-weight: 500;
+      color: #444;
+  }
+
+  .form-control {
+      border-radius: 0.6rem;
+      border: 1px solid #ccc;
+      padding: 0.5rem 0.9rem;
+      font-size: 1rem;
+  }
+
+  .form-control:focus {
+      border-color: #fe424d;
+      box-shadow: 0 0 0 0.2rem rgba(254, 66, 77, 0.25);
+  }
+
+  textarea.form-control {
+      resize: none;
+  }
+
+  .B1 {
+      background-color: #fe424d;
+      color: white;
+      border: none;
+      border-radius: 2rem;
+      padding: 0.6rem 2rem;
+      font-weight: 600;
+      font-size: 1.05rem;
+      transition: background-color 0.2s ease;
+      display: inline-block;
+      text-align: center;
+  }
+
+  .B1:hover {
+      background-color: #e63946;
+  }
+
+  .invalid-feedback {
+      font-size: 0.85rem;
+      color: #dc3545;
+  }
+
+  .dropdown-menu a {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 1rem;
+      font-size: 0.95rem;
+  }
+
+  .dropdown-menu a:hover {
+      background-color: #f1f1f1;
+      color: #fe424d;
+  }
+
+  .dropdown-toggle {
+      width: 100%;
+      border-radius: 0.6rem;
+      padding: 0.6rem 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      justify-content: space-between;
+  }
+
+  .dropdown-toggle:hover {
+      background-color: #e9ecef;
+  }
+
+  @media (max-width: 768px) {
+      .B1 {
+          width: 100%;
+      }
+  }
+</style>
+
+<body>
+<br>
+<div class="row">
+  <div class="col-8 offset-2">
+    <h3>Create a New Listing</h3>
+    <br>
+    <form method="POST" action="/listings" class="needs-validation" novalidate enctype="multipart/form-data">
+
+      <!-- Title -->
+      <div class="mb-3">
+        <label for="title" class="form-label">Title</label>
+        <input name="listing[title]" placeholder="Add a catchy title" type="text" class="form-control" required>
+        <div class="invalid-feedback">Please provide a title.</div>
+      </div>
+
+      <!-- Description -->
+      <div class="mb-3">
+        <label for="description" class="form-label">Description</label>
+        <textarea name="listing[description]" placeholder="Short description" class="form-control" rows="3" required></textarea>
+        <div class="invalid-feedback">Please enter a short description.</div>
+      </div>
+
+      <!-- Image & Dropdown -->
+      <div class="row">
+        <div class="mb-3 col-md-8">
+          <label for="image" class="form-label">Upload Listing Image</label>
+          <input name="listing[image]" type="file" class="form-control" required>
+          <div class="invalid-feedback">Please upload an image.</div>
+        </div>
+
+        <div class="mb-3 col-md-4">
+          <label for="placeType" class="form-label">Select Place Type</label>
+          <div class="dropdown">
+            <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="placeDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+              <i class="fa-solid fa-bed"></i> Select a Place
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="placeDropdown">
+              <li><a class="dropdown-item" href="#" data-value="rooms"><i class="fa-solid fa-bed"></i> Rooms</a></li>
+              <li><a class="dropdown-item" href="#" data-value="iconic-cities"><i class="fa-solid fa-mountain-city"></i> Iconic Cities</a></li>
+              <li><a class="dropdown-item" href="#" data-value="mountains"><i class="fa-solid fa-mountain"></i> Mountains</a></li>
+              <li><a class="dropdown-item" href="#" data-value="castles"><i class="fa-brands fa-fort-awesome"></i> Castles</a></li>
+              <li><a class="dropdown-item" href="#" data-value="amazing-pools"><i class="fa-solid fa-person-swimming"></i> Amazing Pools</a></li>
+              <li><a class="dropdown-item" href="#" data-value="camping"><i class="fa-solid fa-campground"></i> Camping</a></li>
+              <li><a class="dropdown-item" href="#" data-value="farms"><i class="fa-solid fa-cow"></i> Farms</a></li>
+              <li><a class="dropdown-item" href="#" data-value="arctic"><i class="fa-solid fa-snowflake"></i> Arctic</a></li>
+              <li><a class="dropdown-item" href="#" data-value="domes"><i class="fa-solid fa-igloo"></i> Domes</a></li>
+              <li><a class="dropdown-item" href="#" data-value="hot"><i class="fa-solid fa-fire"></i> Hot</a></li>
+            </ul>
+            <input type="hidden" name="listing[placeType]" id="selectedPlaceType" required>
+            <div class="invalid-feedback">Please select a place type.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Price & Country -->
+      <div class="row">
+        <div class="mb-3 col-md-4">
+          <label for="price" class="form-label">Price</label>
+          <input name="listing[price]" placeholder="1200" type="number" class="form-control" required>
+          <div class="invalid-feedback">Please provide a valid price.</div>
+        </div>
+
+        <div class="mb-3 col-md-8">
+          <label for="country" class="form-label">Country</label>
+          <input name="listing[country]" placeholder="India" type="text" class="form-control" required>
+          <div class="invalid-feedback">Please enter a country name.</div>
+        </div>
+      </div>
+
+      <!-- Location -->
+      <div class="mb-3">
+        <label for="location" class="form-label">Location</label>
+        <input name="listing[location]" placeholder="City, State" type="text" class="form-control" required>
+        <div class="invalid-feedback">Please provide a location.</div>
+      </div>
+
+      <!-- Submit Button -->
+      <br>
+      <button type="submit" class="B1">Add Listing</button>
+      <br><br>
+
+    </form>
+  </div>
+</div>
+
+<script>
+  // Form Validation Bootstrap
+  (function () {
+    'use strict'
+    const forms = document.querySelectorAll('.needs-validation')
+    Array.from(forms).forEach(function (form) {
+      form.addEventListener('submit', function (event) {
+        if (!form.checkValidity()) {
+          event.preventDefault()
+          event.stopPropagation()
+        }
+        form.classList.add('was-validated')
+      }, false)
+    })
+  })();
+
+  // Dropdown select functionality
+  const dropdownItems = document.querySelectorAll('.dropdown-item');
+  const dropdownButton = document.getElementById('placeDropdown');
+  const hiddenInput = document.getElementById('selectedPlaceType');
+
+  dropdownItems.forEach(item => {
+    item.addEventListener('click', function (e) {
+      e.preventDefault();
+      const icon = this.querySelector('i').outerHTML;
+      const text = this.innerText.trim();
+      const value = this.dataset.value;
+
+      dropdownButton.innerHTML = `${icon} ${text}`;
+      hiddenInput.value = value;
+    });
+  });
+</script>
+</body>

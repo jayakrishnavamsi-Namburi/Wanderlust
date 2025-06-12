@@ -1,0 +1,57 @@
+<% layout("/layouts/boilerplate") %>
+
+<!-- Filters Bar -->
+<div id="filters">
+    <a href="/listings?placeType=all" class="filter <%= placeType === 'all' ? 'active' : '' %>"><i class="fa-solid fa-globe"></i><p>All</p></a>
+    <a href="/listings?placeType=rooms" class="filter <%= placeType === 'rooms' ? 'active' : '' %>"><i class="fa-solid fa-bed"></i><p>Rooms</p></a>
+    <a href="/listings?placeType=iconic-cities" class="filter <%= placeType === 'iconic-cities' ? 'active' : '' %>"><i class="fa-solid fa-mountain-city"></i><p>Iconic Cities</p></a>
+    <a href="/listings?placeType=mountains" class="filter <%= placeType === 'mountains' ? 'active' : '' %>"><i class="fa-solid fa-mountain"></i><p>Mountains</p></a>
+    <a href="/listings?placeType=castles" class="filter <%= placeType === 'castles' ? 'active' : '' %>"><i class="fa-brands fa-fort-awesome"></i><p>Castles</p></a>
+    <a href="/listings?placeType=amazing-pools" class="filter <%= placeType === 'amazing-pools' ? 'active' : '' %>"><i class="fa-solid fa-person-swimming"></i><p>Amazing Pools</p></a>
+    <a href="/listings?placeType=camping" class="filter <%= placeType === 'camping' ? 'active' : '' %>"><i class="fa-solid fa-campground"></i><p>Camping</p></a>
+    <a href="/listings?placeType=farms" class="filter <%= placeType === 'farms' ? 'active' : '' %>"><i class="fa-solid fa-cow"></i><p>Farms</p></a>
+    <a href="/listings?placeType=arctic" class="filter <%= placeType === 'arctic' ? 'active' : '' %>"><i class="fa-solid fa-snowflake"></i><p>Arctic</p></a>
+    <a href="/listings?placeType=domes" class="filter <%= placeType === 'domes' ? 'active' : '' %>"><i class="fa-solid fa-igloo"></i><p>Domes</p></a>
+    <a href="/listings?placeType=hot" class="filter <%= placeType === 'hot' ? 'active' : '' %>"><i class="fa-solid fa-fire"></i><p>Hot</p></a>
+</div>
+
+<!-- Search Form -->
+
+<!-- Listings Grid -->
+<div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 mt-3">
+
+    <% if (listings.length === 0) { %>
+        <div class="no-listings text-center my-5">
+            <i class="fa-solid fa-face-frown fa-3x mb-3"></i> 
+
+            <% if (searchQuery) { %>
+                <h3>No listings found for "<%= searchQuery %>"</h3>
+                <p>Try searching for something else or explore other categories.</p>
+            <% } else if (placeType && placeType !== "all") { %>
+                <h3>No listings found for "<%= placeType %>"</h3>
+                <p>Try selecting a different category or check back later.</p>
+            <% } else { %>
+                <h3>No listings available.</h3>
+                <p>Check back soon!</p>
+            <% } %>
+        </div>
+    
+    <% } else { %>
+        <% listings.forEach(list => { %>
+            <a href="/listings/<%= list._id %>" class="listing-link"> 
+                <div class="card col listing-card">
+                    <img src="<%= list.image.url %>" class="card-img-top" alt="Listing image" style="height: 20rem; object-fit: cover;">
+                    <div class="card-img-overlay"></div>
+                    <div class="card-body">
+                        <p class="card-text">
+                            <b><%= list.title %></b> <br/>
+                            ₹ <%= typeof list.price === 'number' ? list.price.toLocaleString("en-IN") : "N/A" %> /night
+                            <span class="tax hidden">+ ₹ <%= Math.floor(list.price * 0.18) %> GST</span>
+                        </p>
+                    </div>
+                </div>
+            </a>
+        <% }); %>
+    <% } %>
+
+</div>

@@ -1,0 +1,84 @@
+<style>
+.f-info {
+    background-color: #fff;
+    color: #333;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    border-top: 1px solid #ddd;
+    font-size: 0.9rem;
+}
+
+.f-info-socials {
+    display: flex;
+    gap: 1rem;
+}
+
+.f-info-socials i {
+    font-size: 1.5rem;
+    color: #333;
+    transition: color 0.3s ease;
+}
+
+.f-info-socials i:hover {
+    color: #fe424d;
+}
+
+.f-info-brand {
+    flex: 1 0 100%;
+    text-align: center;
+    margin: 0.5rem 0;
+}
+
+.f-info-links {
+    display: flex;
+    gap: 1rem;
+}
+
+.f-info-links a {
+    color: #333;
+    text-decoration: none;
+}
+
+.f-info-links a:hover {
+    text-decoration: underline;
+}
+
+/* ✅ Small screen FLEX control */
+@media (max-width: 576px) {
+    .f-info {
+        flex-direction: column;
+        text-align: center;
+        gap: 0.7rem;
+    }
+
+    .f-info-socials {
+        justify-content: center;     /* icons centered on small screens */
+        display: inline;
+        gap: 0.8rem;
+    }
+
+    .f-info-links {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 0.8rem;
+    }
+}
+
+
+
+</style>
+<div class="f-info">
+    <div class="f-info-socials">
+        <i class="fa-brands fa-square-facebook"></i>
+        <i class="fa-brands fa-square-instagram"></i>
+        <i class="fa-brands fa-linkedin"></i>
+    </div>
+    <div class="f-info-brand"> &copy; WonderLust Private Limited</div>
+    <div class="f-into-links">
+        <a href="/privacy">Privacy</a>
+        <a href="/terms">Terms</a>
+    </div>
+</div>
