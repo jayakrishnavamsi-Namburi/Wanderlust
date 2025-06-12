@@ -1,64 +1,42 @@
-  body {
+body {
     font-family: 'Plus Jakarta Sans', sans-serif;
-  }
+}
 
-  .listing-card {
+/* Listing Card & Images */
+.listing-card {
     max-width: 100%;
-  }
+}
 
-  .show-img {
+.show-img {
     width: 100%;
     height: auto;
     border-radius: 10px;
-  }
+}
 
-  .card-text {
+/* General Text */
+.card-text {
     font-size: 1rem;
-  }
+}
 
-  .btns {
+/* Buttons Group */
+.btns {
     display: flex;
     flex-wrap: wrap;
     gap: 0.5rem;
     margin-top: 1rem;
-  }
+}
 
-  #map {
+/* Map Container */
+#map {
     width: 100%;
     height: 300px;
     border-radius: 10px;
-  }
+}
 
-  /* Responsive Layout */
-  @media (max-width: 992px) {
-    .col-8.offset-2 {
-      width: 100%;
-      margin: 0 auto;
-      padding: 0 1rem;
-    }
-
-    .card-text {
-      font-size: 0.95rem;
-    }
-
-    .desktop-nav {
-      display: none;
-    }
-  }
-
-  @media (max-width: 768px) {
-    .card.col-5 {
-      width: 100% !important;
-      margin: 0 auto 1rem auto;
-    }
-
-    .col-6 {
-      width: 100% !important;
-    }
-  }
+/* Description Styles (Responsive) */
 .description {
     width: 45rem;
-    max-width: 900px;     /* ✅ Large on laptop screens */
+    max-width: 900px;
     word-wrap: break-word;
     margin-bottom: 1rem;
     font-size: 1.05rem;
@@ -66,40 +44,116 @@
 }
 
 @media (max-width: 992px) {
+    .col-8.offset-2 {
+        width: 100%;
+        margin: 0 auto;
+        padding: 0 1rem;
+    }
+
+    .card-text {
+        font-size: 0.95rem;
+    }
+
+    .desktop-nav {
+        display: none;
+    }
+
     .description {
-        max-width: 720px; /* ✅ Slightly smaller on medium screens (tablets) */
+        max-width: 720px;
         font-size: 1rem;
     }
 }
 
 @media (max-width: 768px) {
+    .card.col-5 {
+        width: 100% !important;
+        margin: 0 auto 1rem auto;
+    }
+
+    .col-6 {
+        width: 100% !important;
+    }
+
     .description {
-        max-width: 100%;  /* ✅ Full width for phones */
+        max-width: 100%;
         font-size: 0.95rem;
     }
 }
 
 @media (max-width: 576px) {
     .description {
-        font-size: 0.9rem; /* ✅ Even smaller text on very small phones */
+        font-size: 0.9rem;
     }
 }
 
-  @media (max-width: 576px) {
+/* Review Card Styles */
+.review-card-body {
+    padding: 1rem 1.2rem;
+    background-color: #fff;
+    border-radius: 0.8rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.review-card-body .card-title {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #222;
+    margin-bottom: 0.4rem;
+}
+
+.review-card-body .card-text {
+    font-size: 0.95rem;
+    color: #555;
+    margin-bottom: 0.8rem;
+}
+
+.review-card-body .delete-btn {
+    background-color: #fe424d;
+    color: #fff;
+    border-radius: 2rem;
+    padding: 0.35rem 1.2rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+    border: none;
+    transition: background-color 0.2s ease;
+}
+
+.review-card-body .delete-btn:hover {
+    background-color: #e63946;
+}
+
+@media (max-width: 768px) {
+    .review-card-body {
+        padding: 0.8rem 1rem;
+    }
+    .review-card-body .card-title {
+        font-size: 1rem;
+    }
+    .review-card-body .card-text {
+        font-size: 0.9rem;
+    }
+    .review-card-body .delete-btn {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+/* Small Screens Layout */
+@media (max-width: 576px) {
     .listing-card {
-      width: 100%;
+        width: 100%;
     }
 
     .card-text {
-      font-size: 0.9rem;
+        font-size: 0.9rem;
     }
 
     .btns {
-      flex-direction: column;
-      align-items: stretch;
+        flex-direction: column;
+        align-items: stretch;
     }
 
     .starability-result {
-      font-size: 0.9rem;
+        font-size: 0.9rem;
     }
-  }
+}

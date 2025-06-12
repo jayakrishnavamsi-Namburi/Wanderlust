@@ -1,12 +1,87 @@
 <% layout("layouts/boilerplate") %>
-<br>
-<div class="row">
-    <div class="col-6 offset-3">
-        <div class="alert alert-danger text-center" role="alert">
-            <h4 class="alert-heading">Oops! An error occurred.</h4>
-            <p><%= message %> </p>
-            <hr>
-            <a href="/listings" class="btn btn-primary mt-3">Back to Listings</a>
+<style>
+    /* Error Page Custom Styles */
+.error-container {
+    margin-top: 5rem;
+    padding: 2rem;
+    border-radius: 1rem;
+    background-color: #fff5f5;   /* Light red background */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.error-heading {
+    font-size: 2rem;
+    color: #dc3545; /* Bootstrap 'danger' color */
+}
+
+.error-message {
+    font-size: 1.1rem;
+    color: #333;
+}
+
+.error-button {
+    padding: 0.6rem 1.2rem;
+    font-size: 1rem;
+    border-radius: 0.5rem;
+}
+
+@media (max-width: 768px) {
+    .error-container {
+        margin-top: 3rem;
+        padding: 1.5rem;
+    }
+    .error-heading {
+        font-size: 1.6rem;
+    }
+    .error-message {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .error-container {
+        margin-top: 2rem;
+        padding: 1rem;
+    }
+    .error-heading {
+        font-size: 1.4rem;
+    }
+    .error-button {
+        font-size: 0.9rem;
+        padding: 0.5rem 1rem;
+    }
+}
+.error-button {
+    background-color: #FF5A5F;
+    color: #fff;
+    padding: 0.6rem 1.2rem;
+    font-size: 1rem;
+    border-radius: 0.5rem;
+    border: none;
+    transition: background-color 0.3s ease;
+}
+
+.error-button:hover {
+    background-color: #e0484d; /* Slightly darker on hover */
+    color: #fff;
+}
+
+</style>
+
+<% layout("layouts/boilerplate") %>
+
+<body>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-6 col-md-8 col-sm-10">
+                <div class="error-container text-center">
+                    <h2 class="error-heading">⚠️ Oops! Something went wrong.</h2>
+                    <p class="error-message mt-3"><%= message %></p>
+                    <hr>
+                    <a href="/listings" class="btn btn-primary error-button">⬅ Back to Listings</a>
+                </div>
+            </div>
         </div>
     </div>
-</div>
+</body>
+
