@@ -13,7 +13,8 @@ const methodOverride = require("method-override");
 const ejsMate = require('ejs-mate');
 const { title } = require("process");
 const wrapAsync = require("./utils/wrapAsync.js");
-const expressError =  require("./utils/expressError.js");
+const expressError = require('./utils/ExpressError.js');
+
 const {listingSchema,reviewSchema} = require("./schema.js");
 const Review = require("./modules/review");
 const session =  require("express-session");
